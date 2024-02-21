@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import NavBar from '@/components/NavBar';
 
 const iranSans = localFont({ src: '../../public/iranSans.ttf' });
 
@@ -12,7 +13,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" dir="rtl">
-      <body className={iranSans.className}>{children}</body>
+      <body className={iranSans.className}>
+        <nav>
+          <NavBar />
+        </nav>
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
